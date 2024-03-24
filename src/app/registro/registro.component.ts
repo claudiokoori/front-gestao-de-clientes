@@ -52,11 +52,19 @@ export class Registro implements OnInit {
 
   submitForm(form: NgForm) {
     if (form.valid) {
-      this.apiService.getPost(this.cliente).subscribe((resposta) => {
+      this.apiService.getPost(this.cliente).subscribe({
+        next: (resposta) => {
         console.log('Sucesso!', resposta);
         alert('Cliente Registrado com Sucesso.');
         location.reload();
-      });
+        
+      },
+      error: (erro) => {
+        console.error('Erro:', erro);
+        alert('Não foi possível registrar o cliente. CPF ou Telefone já existe no sistema.');
+      }
+      
+    });
 
       console.log('Formulário válido');
       console.log(form.value);
