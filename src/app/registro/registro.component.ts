@@ -72,7 +72,7 @@ export class Registro implements OnInit {
  }
 
  openModal(): void {
-  const modalRef = this.modalService.open(ModalComponent);
+  const modalRef = this.modalService.open(ModalComponent, { ignoreBackdropClick: true });
   modalRef.component.modalHeader = 'modal-header bg-primary text-white'
   modalRef.component.title = 'Sucesso';
   modalRef.component.body = 'Cliente Registrado Com Sucesso';

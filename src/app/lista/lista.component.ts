@@ -49,4 +49,5 @@ export class ListaComponent implements OnInit {
       this.clientes = data;
     });
 }
+
 }

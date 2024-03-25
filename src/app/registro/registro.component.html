@@ -22,8 +22,8 @@
                 <div class="form-group">
                     <label for="genero">Gênero</label>
                     <select [(ngModel)]="cliente.genero" name="genero" class="form-select" id="genero">
-                        <option value="0" selected>Masculino</option>
-                        <option value="1">Feminino</option>
+                        <option [ngValue]="0" [selected]="cliente.genero === 0">Masculino</option>
+                        <option [ngValue]="1" [selected]="cliente.genero === 1">Feminino</option>
                     </select>
                 </div>
             </div>
@@ -37,7 +37,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="ativo">Ativo</label>
-                <input type="radio" [(ngModel)]="cliente.ativo" name="ativo" id="ativo">
+                <input type="radio" [(ngModel)]="cliente.ativo" name="ativo" id="ativo" [value]="true">
             </div>
         </div>
         
