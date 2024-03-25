@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Lista de Clientes</h2>
+    <button type="button" class="btn btn-primary" routerLink="/registro" > Novo Registro </button>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">CPF</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Cidade</th>
+          <th scope="col">UF</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of clientes">
+            <td [title]="item.nomeCompleto">{{ item.nomeCompleto.length > 15 ? item.nomeCompleto.slice(0, 10) + '...' : item.nomeCompleto }}</td>
+          <td>{{item.cpf | mask: '000.000.000-00'}}</td>
+          <td>{{item.telefone | mask: '(00) 0 0000-0000'}}</td>
+          <td>{{item.endereco.localidade}}</td>
+          <td>{{item.endereco.uf}}</td>
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-primary">Editar</button>
+            <button type="button" class="btn btn-danger">Excluir</button>
+          </div>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>

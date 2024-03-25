@@ -9,6 +9,8 @@ import { Registro } from './registro/registro.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask  } from 'ngx-mask';
+import { ListaComponent } from './lista/lista.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -16,7 +18,9 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask  } from 'ngx-mask';
 @NgModule({
   declarations: [
     AppComponent,
-    Registro
+    Registro,
+    ListaComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -19,4 +19,8 @@ export class EnderecoService {
     console.log(registro)
     return this.http.post(`https://localhost:7176/api/Cliente`, registro);
   }
+
+  getAllContent(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(`https://localhost:7176/api/Cliente`);
+  }
 }
