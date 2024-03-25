@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask  } from 'ngx-mask';
 import { ListaComponent } from './lista/lista.component';
 import { HomeComponent } from './home/home.component';
+import { ModalComponent } from './modal/modal.component';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 
 
@@ -20,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     Registro,
     ListaComponent,
-    HomeComponent
+    HomeComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { HomeComponent } from './home/home.component';
     NgbModule,
     FormsModule,
     NgxMaskDirective,
-    NgxMaskPipe
+    NgxMaskPipe,
+    MdbModalModule
       
   ],
   providers: [

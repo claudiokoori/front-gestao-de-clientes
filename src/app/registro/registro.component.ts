@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EnderecoService } from '../services/endereco.service';
 import { Cliente } from '../services/models/cliente.interface';
-import { NgForm } from '@angular/forms'; // Importe NgForm
+import { NgForm } from '@angular/forms';
+import { ModalComponent } from '../modal/modal.component';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-registro',
@@ -11,6 +13,7 @@ import { NgForm } from '@angular/forms'; // Importe NgForm
 export class Registro implements OnInit {
   cep: string = '';
   cliente: Cliente = {
+    id: 0,
     nomeCompleto: '',
     cpf: '',
     genero: 0,
@@ -34,7 +37,7 @@ export class Registro implements OnInit {
 
   timeout: any;
 
-  constructor(private apiService: EnderecoService) {}
+  constructor(private apiService: EnderecoService, private modalService: MdbModalService) {}
 
   ngOnInit(): void {}
 
@@ -55,9 +58,7 @@ export class Registro implements OnInit {
       this.apiService.getPost(this.cliente).subscribe({
         next: (resposta) => {
         console.log('Sucesso!', resposta);
-        alert('Cliente Registrado com Sucesso.');
-        location.reload();
-        
+        this.openModal();
       },
       error: (erro) => {
         console.error('Erro:', erro);
@@ -65,11 +66,20 @@ export class Registro implements OnInit {
       }
       
     });
-
-      console.log('Formulário válido');
-      console.log(form.value);
     } else {
       console.log('Formulário inválido');
     }
-  }
+ }
+
+ openModal(): void {
+  const modalRef = this.modalService.open(ModalComponent);
+  modalRef.component.modalHeader = 'modal-header bg-primary text-white'
+  modalRef.component.title = 'Sucesso';
+  modalRef.component.body = 'Cliente Registrado Com Sucesso';
+  modalRef.component.action = () => { location.reload() }
+  modalRef.component.saveButtonLabel = 'Ok'
+  modalRef.component.botaoDiretoClass = 'btn btn-primary'
+  modalRef.component.botaoEsquerdo = false;
+}
+  
 }

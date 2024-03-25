@@ -1,4 +1,5 @@
 export interface Cliente {
+  id: number
   nomeCompleto: string
   cpf: string
   genero: number

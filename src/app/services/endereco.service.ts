@@ -23,4 +23,8 @@ export class EnderecoService {
   getAllContent(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(`https://localhost:7176/api/Cliente`);
   }
+
+  deleteCliente(id: number): Observable<any> {
+    return this.http.delete(`https://localhost:7176/api/Cliente/${id}`);
+  }
 }

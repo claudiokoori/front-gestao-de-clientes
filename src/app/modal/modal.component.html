@@ -1,0 +1,9 @@
+<div class="{{modalHeader}}">
+  <h5 class="modal-title">{{ title }}</h5>
+  <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="modal-body">{{ body }}</div>
+<div class="modal-footer">
+  <button *ngIf="botaoEsquerdo" type="button" class="btn btn-secondary" id="{{ botaoEsquerdo}}" (click)="closeModal()">{{ closeButtonLabel }}</button>
+  <button type="button" class="{{ botaoDiretoClass }}" (click)="action()">{{ saveButtonLabel }}</button>
+</div>
