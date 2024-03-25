@@ -21,6 +21,7 @@ export class Registro implements OnInit {
     ativo: false,
     enderecoId: 0,
     endereco: {
+      id: 0,
       cep: '',
       logradouro: '',
       complemento: '',
@@ -54,6 +55,7 @@ export class Registro implements OnInit {
   }
 
   submitForm(form: NgForm) {
+    this.cliente.endereco.id = this.cliente.enderecoId;
     if (form.valid) {
       this.apiService.getPost(this.cliente).subscribe({
         next: (resposta) => {

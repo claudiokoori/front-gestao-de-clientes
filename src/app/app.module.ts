@@ -13,6 +13,7 @@ import { ListaComponent } from './lista/lista.component';
 import { HomeComponent } from './home/home.component';
 import { ModalComponent } from './modal/modal.component';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { AtualizarComponent } from './atualizar/atualizar.component';
 
 
 
@@ -23,7 +24,8 @@ import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
     Registro,
     ListaComponent,
     HomeComponent,
-    ModalComponent
+    ModalComponent,
+    AtualizarComponent
   ],
   imports: [
     BrowserModule,

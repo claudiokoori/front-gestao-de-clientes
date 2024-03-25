@@ -20,7 +20,7 @@
           <td>{{item.endereco.localidade}}</td>
           <td>{{item.endereco.uf}}</td>
           <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-primary">Editar</button>
+            <button type="button" class="btn btn-primary" [routerLink]="['/atualizar', item.id]">Editar</button>
             <button type="button" class="btn btn-danger" (click)="openModal(item.id)">Excluir</button>
           </div>
         </tr>

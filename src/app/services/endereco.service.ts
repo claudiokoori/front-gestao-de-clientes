@@ -11,6 +11,10 @@ export class EnderecoService {
 
   constructor(private http: HttpClient) { }
 
+  getCliente(id: number): Observable<Cliente>{
+    return this.http.get<Cliente>(`https://localhost:7176/api/Cliente/${id}`);
+  }
+
   getCep(cep: string): Observable<Endereco> {
     return this.http.get<Endereco>(`${this.apiCepUrl}/ws/${cep}/json/`);
   }
@@ -26,5 +30,9 @@ export class EnderecoService {
 
   deleteCliente(id: number): Observable<any> {
     return this.http.delete(`https://localhost:7176/api/Cliente/${id}`);
+  }
+
+  updateCliente(id: number, updatedCliente: Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(`https://localhost:7176/api/Cliente/${id}`, updatedCliente);
   }
 }

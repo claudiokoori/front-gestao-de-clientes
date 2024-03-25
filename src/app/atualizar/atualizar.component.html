@@ -1,0 +1,139 @@
+<div class="container">
+    <form *ngIf="cliente" #myForm="ngForm" (ngSubmit)="submitForm(myForm)" class="mt-5 p-4 bg-light border rounded">
+        <h2 class="mb-3">Cadastro de Cliente</h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nomeCompleto">Nome Completo</label>
+                    <input type="text" [(ngModel)]="cliente.nomeCompleto" name="nomeCompleto" class="form-control" id="nomeCompleto" placeholder="Nome Completo">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" [(ngModel)]="cliente.cpf" name="cpf" class="form-control" id="cpf" placeholder="CPF" mask="000.000.000-00">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="genero">Gênero</label>
+                    <select [(ngModel)]="cliente.genero" name="genero" class="form-select" id="genero">
+                        <option [ngValue]="0" [selected]="cliente.genero === 0">Masculino</option>
+                        <option [ngValue]="1" [selected]="cliente.genero === 1">Feminino</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" [(ngModel)]="cliente.telefone" name="telefone" class="form-control" id="telefone" placeholder="Telefone" mask="(00) 0 0000-0000">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="ativo">Ativo</label>
+                <input type="radio" [(ngModel)]="cliente.ativo" name="ativo" id="ativo" [value]="true">
+            </div>
+        </div>
+        
+        
+        
+        <h3 class="mb-4">Registro Endereço do Cliente</h3>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="cep">CEP</label>
+                    <input type="text" [(ngModel)]="cep" (input)="onInputChange()"  name="cep" required class="form-control" id="cep" placeholder="CEP" mask="00000-000">
+                
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="casa">Casa</label>
+                    <input type="text" [(ngModel)]="cliente.endereco.casa" name="casa" class="form-control" id="casa" placeholder="Casa" required="Campo obrigatório">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="logradouro">Logradouro</label>
+                    <input type="text" [value]="cliente.endereco.logradouro" name="logradouro" disabled class="form-control" id="logradouro" placeholder="Logradouro">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" [value]="cliente.endereco.complemento" name="complemento" disabled class="form-control" id="complemento" placeholder="Complemento">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" [value]="cliente.endereco.bairro" name="bairro" disabled class="form-control" id="bairro" placeholder="Bairro">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="localidade">Localidade</label>
+                    <input type="text" [value]="cliente.endereco.localidade" name="localidade" disabled class="form-control" id="localidade" placeholder="Localidade">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="uf">UF</label>
+                    <input type="text" [value]="cliente.endereco.uf" name="uf" disabled class="form-control" id="uf" placeholder="UF">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="ibge">IBGE</label>
+                    <input type="text" [value]="cliente.endereco.ibge" name="ibge" disabled class="form-control" id="ibge" placeholder="IBGE">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="gia">GIA</label>
+                    <input type="text" [value]="cliente.endereco.gia" name="gia" disabled class="form-control" id="gia" placeholder="GIA">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="ddd">DDD</label>
+                    <input type="text" [value]="cliente.endereco.ddd" name="ddd" disabled class="form-control" id="ddd" placeholder="DDD">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="siafi">SIAFI</label>
+                    <input type="text" [value]="cliente.endereco.siafi" name="siafi" disabled class="form-control" id="siafi" placeholder="SIAFI">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Atualizar</button>
+            </div>
+        </div>
+    </form>
+</div>
