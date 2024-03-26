@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ClienteService } from '../services/cliente.service';
 import { Cliente } from '../services/models/cliente.interface';
 import { NgForm } from '@angular/forms';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-atualizar',
@@ -38,7 +40,7 @@ export class AtualizarComponent implements OnInit {
   timeout: any;
 
 
-  constructor(private apiService: ClienteService, private route: ActivatedRoute) {}
+  constructor(private apiService: ClienteService, private route: ActivatedRoute, private modalService: MdbModalService) {}
 
 
   ngOnInit(): void {
@@ -87,6 +89,7 @@ export class AtualizarComponent implements OnInit {
         next: () => {
   
           console.log("Cliente atualizado com sucesso.", this.cliente);
+          this.openModal();
         },
         error: (erro) => {
           console.error('Erro', erro);
@@ -96,5 +99,15 @@ export class AtualizarComponent implements OnInit {
     }
   }
 
+  openModal(): void {
+    const modalRef = this.modalService.open(ModalComponent, { ignoreBackdropClick: true });
+    modalRef.component.modalHeader = 'modal-header bg-primary text-white'
+    modalRef.component.title = 'Sucesso';
+    modalRef.component.body = 'Cliente Atualizado Com Sucesso';
+    modalRef.component.action = () => { location.reload() }
+    modalRef.component.saveButtonLabel = 'Ok'
+    modalRef.component.botaoDiretoClass = 'btn btn-primary'
+    modalRef.component.botaoEsquerdo = false;
+  }
   
 }
