@@ -8,7 +8,6 @@ import { AtualizarComponent } from './atualizar/atualizar.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'registro', component: Registro},
-  {path: 'lista', component: ListaComponent},
   {path: 'atualizar/:id', component: AtualizarComponent}
 ];
 

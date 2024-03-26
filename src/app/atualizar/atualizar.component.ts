@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EnderecoService } from '../services/endereco.service';
-import { Cliente, Endereco } from '../services/models/cliente.interface';
+import { ClienteService } from '../services/cliente.service';
+import { Cliente } from '../services/models/cliente.interface';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -38,7 +38,7 @@ export class AtualizarComponent implements OnInit {
   timeout: any;
 
 
-  constructor(private apiService: EnderecoService, private route: ActivatedRoute) {}
+  constructor(private apiService: ClienteService, private route: ActivatedRoute) {}
 
 
   ngOnInit(): void {

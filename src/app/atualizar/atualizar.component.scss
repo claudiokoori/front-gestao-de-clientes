@@ -1,0 +1,57 @@
+form {
+    .form-group {
+        margin-bottom: 1.5rem;
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select,
+        input[type="checkbox"] {
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+            &:focus {
+                border-color: #80bdff;
+                outline: 0;
+                box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            }
+
+            &:disabled {
+                background-color: #e9ecef;
+                opacity: 1;
+            }
+        }
+
+        .form-check-input {
+            width: auto;
+            margin-top: 0.25rem;
+            margin-right: 0.25rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+
+        .col-md-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+    }
+}

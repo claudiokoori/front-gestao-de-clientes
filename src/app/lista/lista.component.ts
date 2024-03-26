@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EnderecoService } from '../services/endereco.service';
+import { ClienteService } from '../services/cliente.service';
 import { Cliente } from '../services/models/cliente.interface';
 import { ModalComponent } from '../modal/modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
@@ -13,7 +13,7 @@ export class ListaComponent implements OnInit {
 
   clientes: Cliente[] = []
   
-  constructor(private apiService: EnderecoService,private modalService: MdbModalService){}
+  constructor(private apiService: ClienteService,private modalService: MdbModalService){}
 
   ngOnInit(): void {
     this.apiService.getAllContent().subscribe((data) => {

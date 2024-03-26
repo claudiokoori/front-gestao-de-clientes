@@ -6,7 +6,7 @@ import { Cliente, Endereco} from './models/cliente.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class EnderecoService {
+export class ClienteService {
   private apiCepUrl = 'https://viacep.com.br';
 
   constructor(private http: HttpClient) { }
