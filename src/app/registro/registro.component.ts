@@ -4,6 +4,7 @@ import { Cliente } from '../services/models/cliente.interface';
 import { NgForm } from '@angular/forms';
 import { ModalComponent } from '../modal/modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-registro',
@@ -38,7 +39,7 @@ export class Registro implements OnInit {
 
   timeout: any;
 
-  constructor(private apiService: ClienteService, private modalService: MdbModalService) {}
+  constructor(private apiService: ClienteService, private modalService: MdbModalService, private loginService: LoginService) {}
 
   ngOnInit(): void {}
 
@@ -82,6 +83,10 @@ export class Registro implements OnInit {
   modalRef.component.saveButtonLabel = 'Ok'
   modalRef.component.botaoDiretoClass = 'btn btn-primary'
   modalRef.component.botaoEsquerdo = false;
+}
+
+fazerLogout(){
+  this.loginService.logout();
 }
   
 }

@@ -5,6 +5,7 @@ import { Cliente } from '../services/models/cliente.interface';
 import { NgForm } from '@angular/forms';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { ModalComponent } from '../modal/modal.component';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-atualizar',
@@ -39,8 +40,7 @@ export class AtualizarComponent implements OnInit {
 
   timeout: any;
 
-
-  constructor(private apiService: ClienteService, private route: ActivatedRoute, private modalService: MdbModalService) {}
+  constructor(private apiService: ClienteService, private route: ActivatedRoute, private modalService: MdbModalService, private loginService: LoginService) {}
 
 
   ngOnInit(): void {
@@ -108,6 +108,10 @@ export class AtualizarComponent implements OnInit {
     modalRef.component.saveButtonLabel = 'Ok'
     modalRef.component.botaoDiretoClass = 'btn btn-primary'
     modalRef.component.botaoEsquerdo = false;
+  }
+
+  fazerLogout(){
+    this.loginService.logout();
   }
   
 }

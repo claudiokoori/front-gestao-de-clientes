@@ -3,6 +3,8 @@ import { ClienteService } from '../services/cliente.service';
 import { Cliente } from '../services/models/cliente.interface';
 import { ModalComponent } from '../modal/modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { Login } from '../services/models/login.interface';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-lista',
@@ -13,7 +15,7 @@ export class ListaComponent implements OnInit {
 
   clientes: Cliente[] = []
   
-  constructor(private apiService: ClienteService,private modalService: MdbModalService){}
+  constructor(private apiService: ClienteService,private modalService: MdbModalService, private loginService: LoginService){}
 
   ngOnInit(): void {
     this.apiService.getAllContent().subscribe((data) => {
@@ -48,6 +50,10 @@ export class ListaComponent implements OnInit {
     this.apiService.getAllContent().subscribe((data) => {
       this.clientes = data;
     });
+}
+
+fazerLogout(){
+  this.loginService.logout();
 }
 
 }

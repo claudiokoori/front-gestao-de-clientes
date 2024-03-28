@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { ModalComponent } from './modal/modal.component';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import { AtualizarComponent } from './atualizar/atualizar.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -25,7 +26,8 @@ import { AtualizarComponent } from './atualizar/atualizar.component';
     ListaComponent,
     HomeComponent,
     ModalComponent,
-    AtualizarComponent
+    AtualizarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
